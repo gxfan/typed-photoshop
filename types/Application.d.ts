@@ -12,6 +12,7 @@ type doProgressSubTask = (index: number, limit: number, javaScriptString: string
 type doProgressTask = (taskLength: number, javaScriptString: string) => boolean
 type eraseCustomOptions = (key: string) => void
 type executeAction = (eventID: number, descriptor?: ActionDescriptor, displayDialogs?: DialogModes) => ActionDescriptor 
+type executeActionGet = (ref: ActionReference) => ActionDescriptor
 type featureEnabled = (name: string) => boolean
 type getCustomOptions = (key: string) => ActionDescriptor
 type isQuicktimeAvailable = () => boolean
@@ -191,6 +192,8 @@ declare interface Application {
     eraseCustomOptions: eraseCustomOptions
     /** Plays an Action Manager event. */
     executeAction: executeAction
+
+    executeActionGet: executeActionGet
     /**
      * Obtains information about a predefined or recorded action.
      */
@@ -393,6 +396,8 @@ declare var doProgressTask: doProgressTask
 declare var eraseCustomOptions: eraseCustomOptions
 /** @see app.executeAction */
 declare var executeAction: executeAction
+/** @see app.executeActionGet */
+declare var executeActionGet: executeActionGet
 /** @see app.featureEnabled */
 declare var featureEnabled: featureEnabled
 /** @see app.getCustomOptions */
